@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aufgabenliste</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://i.postimg.cc/90WQMtkp/notizzetteltest.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      padding: 20px;
+      color: #ffffff;
+    }
+    h1 {
+      color: #ffffff;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aufgabenliste</h1>
+  <ul id="taskList">
+    <!-- Hier werden deine Aufgaben eingefügt -->
+  </ul>
+
+  <script>
+    // Funktion zum Hinzufügen von Aufgaben
+    function addTask(task) {
+      var taskList = document.getElementById("taskList");
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(task));
+      taskList.appendChild(li);
+    }
+
+    // Nightbot-Befehle
+    function processChatCommand(command) {
+      if (command.startsWith('!addtask')) {
+        var task = command.replace('!addtask', '').trim();
+        addTask(task);
+      } else if (command === '!deletetask') {
+        deleteTask();
+      }
+    }
+
+    // Nightbot-Simulation (ersetze dies durch echte Chat-Befehle)
+    processChatCommand('!addtask Neue Aufgabe hier');
+  </script>
+</body>
+</html>
